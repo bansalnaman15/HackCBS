@@ -83,17 +83,41 @@
             <form class='box' action='/signup' method='post' target='_selfq'>
                 <h1>SIGNUP</h1>
                 <label for='name' class='Heads'>Name</label>
-                <input type='text' name='name'> <br>
+                <input type='text' name='name' id='x1'> <br>
                 <label for='email' class='Heads'>Email Id</label>
-                <input type='text' name='email'> <br>
+                <input type='text' name='email' id='x2'> <br>
                 <label for='password' class='Heads'>Password</label>
-                <input type='password' name='password'> <br>
+                <input type='password' name='password' id='x3'> <br>
                 <label for='repassword' class='Heads'>Re-Enter Password</label>
-                <input type='password' name='repassword'> <br>
-                <input type='submit' value="Submit" />
+                <input type='password' name='repassword' id='x4'> <br>
+                <input type='submit' value="Submit" onclick='check()' />
     
                 <p style='color: white;'>Or Login to an <a style='color: #2ecc71' href="/login">Existing Account</a></p>
             </form>
         </div>
+
+        <script>
+            console.log('JS loaded!');
+            function check () {
+                if (document.getElementById('x1').value==""
+                 || document.getElementById('x2').value==""
+                 || document.getElementById('x3').value==""
+                 || document.getElementById('x4').value==""
+                 )
+                {
+                    alert ("Please fill the fields completely.");
+                    return false;
+                }
+                else if (document.getElementById('x3').value != document.getElementById('x4').value){
+                    alert ('The passwords do not match!');
+                    return false;
+                }
+                
+                return true;
+            
+            }
+
+
+        </script>
     </body>
 </html>
